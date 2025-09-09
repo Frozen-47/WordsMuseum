@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="word-title">Word</h1>
+    </header>
+
+    <main>
+        <div id="word-details"></div>
+        <a href="index.html" class="back-btn">← Back to Museum</a>
+    </main>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const wordId = params.get("id");
+
+        const words = {
+            apricity: {
+                title: "Apricity",
+                meaning: "The warmth of the sun in winter.",
+                example: "On that cold December morning, the apricity made our walk bearable."
+            },
+            cynosure: {
+                title: "Cynosure",
+                meaning: "Something that strongly attracts attention by its brilliance.",
+                example: "The actress was the cynosure of all eyes at the red-carpet event."
+            },
+            sonder: {
+                title: "Sonder",
+                meaning: "The realization that each passerby has a life as vivid and complex as your own.",
+                example: "As he sat in the café, the feeling of sonder struck him while watching the crowd."
+            },
+            clinomania: {
+                title: "Clinomania",
+                meaning: "Excessive desire to stay in bed.",
+                example: "Her clinomania kept her in bed until noon most weekends."
+            },
+            ephemeral: {
+                title: "Ephemeral",
+                meaning: "Lasting for a very short time.",
+                example: "The beauty of the sunset was ephemeral, fading in moments."
+            },
+            palimpsest: {
+                title: "Palimpsest",
+                meaning: "Something reused or altered but still bearing visible traces of its earlier form.",
+                example: "The old city was a palimpsest of history, with modern buildings rising beside ancient ruins."
+            },
+            serendipity: {
+                title: "Serendipity",
+                meaning: "The occurrence of events by chance in a happy or beneficial way.",
+                example: "Finding my favorite book at the thrift shop was pure serendipity."
+            },
+            effulgent: {
+                title: "Effulgent",
+                meaning: "Shining brightly; radiant.",
+                example: "The effulgent glow of the chandelier lit up the ballroom."
+            },
+            quixotic: {
+                title: "Quixotic",
+                meaning: "Exceedingly idealistic; unrealistic and impractical.",
+                example: "His quixotic plans to change the world made him a dreamer, not a realist."
+            },
+            lagom: {
+                title: "Lagom",
+                meaning: "Not too little, not too much, just right (Swedish).",
+                example: "Her approach to life was lagom—balanced and content."
+            }
+        };
+
+        const word = words[wordId];
+        if (word) {
+            document.getElementById("word-title").textContent = word.title;
+            document.getElementById("word-details").innerHTML = `
+                <p><strong>Meaning:</strong> ${word.meaning}</p>
+                <p><strong>Example:</strong> ${word.example}</p>
+            `;
+        } else {
+            document.getElementById("word-details").innerHTML = "<p>Word not found.</p>";
+        }
+    </script>
+</body></html>
